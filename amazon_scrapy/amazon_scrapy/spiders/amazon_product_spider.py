@@ -1,4 +1,6 @@
 import scrapy
+import random
+from datetime import datetime
 
 class AmazonProductSpider(scrapy.Spider):
     name = 'amazon_product_spider'
@@ -19,7 +21,9 @@ class AmazonProductSpider(scrapy.Spider):
             'GPU': 'https://www.amazon.com/s?k=gpu'
         }
         for category, url in urls.items():
-            yield scrapy.Request(url=url, callback=self.parse, cb_kwargs=dict(category=category))
+            for page in range(1, 21):
+                url = f"{url}&page={page}"
+                yield scrapy.Request(url=url, callback=self.parse, cb_kwargs=dict(category=category))
 
     def parse(self, response, category):
         products = response.css('div[data-component-type="s-search-result"]')
