@@ -45,9 +45,9 @@ def get_products(url, category):
 
 
 urls = {
-    'CPU': 'https://www.amazon.com/s?k=cpu',
-    'RAM': 'https://www.amazon.com/s?k=ram',
-    'GPU': 'https://www.amazon.com/s?k=gpu'
+    'CPU': 'https://www.amazon.co.uk/s?k=cpu',
+    'RAM': 'https://www.amazon.co.uk/s?k=ram',
+    'GPU': 'https://www.amazon.co.uk/s?k=gpu'
 }
 
 
