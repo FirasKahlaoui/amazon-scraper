@@ -17,6 +17,9 @@ def get_products(url, category):
     for product in products:
         title_tag = product.find(
             'h2', {'class': 'a-size-mini a-spacing-none a-color-base s-line-clamp-2'})
+        if title_tag is None:
+            title_tag = product.find(
+                'h2', {'class': 'a-size-mini a-spacing-none a-color-base s-line-clamp-4'})
 
         # Skip products without a title
         if title_tag is None:
