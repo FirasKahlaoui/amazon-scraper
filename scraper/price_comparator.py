@@ -1,6 +1,7 @@
 import sqlite3
 from datetime import datetime, timedelta
 
+
 def compare_prices():
     conn = sqlite3.connect('../db/amazon_prices.db')
     cursor = conn.cursor()
@@ -12,7 +13,7 @@ def compare_prices():
         SELECT p1.name, p1.category, p1.price AS today_price, p2.price AS yesterday_price
         FROM products p1
         JOIN products p2 ON p1.name = p2.name AND p1.category = p2.category
-        WHERE p1.date = ? AND p2.date = ?
+        WHERE p1.created_at = ? AND p2.created_at = ?
     '''
 
     cursor.execute(query, (today, yesterday))
