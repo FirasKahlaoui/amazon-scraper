@@ -4,7 +4,7 @@ from datetime import datetime, timedelta
 
 def compare_prices():
     conn = sqlite3.connect(
-        'C:/Users/Kahla/amazon_scraper_project/db/amazon_prices.db')
+        './db/amazon_prices.db')
     cursor = conn.cursor()
 
     today = str(datetime.now().date())
@@ -36,7 +36,7 @@ def compare_prices():
 
 def print_duplicate_products():
     conn = sqlite3.connect(
-        'C:/Users/Kahla/amazon_scraper_project/db/amazon_prices.db')
+        './db/amazon_prices.db')
     cursor = conn.cursor()
 
     query = '''
@@ -57,3 +57,4 @@ def print_duplicate_products():
 
 if __name__ == '__main__':
     print(compare_prices())
+    print_duplicate_products()

@@ -18,7 +18,7 @@ class AmazonProductSpider(scrapy.Spider):
 
     def __init__(self):
         self.conn = sqlite3.connect(
-            'C:/Users/Kahla/amazon_scraper_project/db/amazon_prices.db')
+            '../db/amazon_prices.db')
         self.cursor = self.conn.cursor()
 
     def start_requests(self):
